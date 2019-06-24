@@ -1,0 +1,7 @@
+<div class="pb-4" style="background-color: lavender;">
+	<h2 class="w-100 text-center py-2">Group Chat</h2>
+	<div class="w-100 h-100 d-flex flex-wrap justify-content-center align-content-center">
+		<chat-user *ngFor="let user of users" [username]="user" (msgSent)="onMessageSent($event)">
+		</chat-user>
+	</div>
+</div>
