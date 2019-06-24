@@ -1,0 +1,37 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 0.1,
+    "newProjectRoot": "placer",
+    "defaultProject": "groupchat",
+    "projects":
+    {
+        "groupchat":
+        {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "prefix": "",
+            "schematics": { },
+            "architect":
+            {
+                "build":
+                {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options":
+                    {
+                        "outputPath": "dist",
+                        "index": "src/groupchat.html",
+                        "main": "src/groupchat.ts",
+                        "polyfills": "polyfills.ts",
+                        "tsConfig": "tsconfig.json"
+                    }
+                },
+                "serve":
+                {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {"browserTarget": "groupchat:build"}
+                }
+            }
+        }
+    }
+}
