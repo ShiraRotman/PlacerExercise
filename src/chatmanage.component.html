@@ -1,22 +1,26 @@
 <div class="pb-4" style="background-color: lavender;">
 	<h2 class="w-100 text-center py-2">{{chatname}}</h2>
 	<div class="w-100 h-100 d-flex flex-wrap justify-content-center align-content-center">
-		<chat-user *ngFor="let user of users" [username]="user" (msgSent)="onMessageSent($event)">
+		<chat-user *ngFor="let user of users" [username]="user" (msgSent)="onMessageSent($event)"
+			class="mb-2">
 		</chat-user>
 	</div>
 	<div class="row justify-content-center pt-4">
-		<input type="button" class="btn btn-primary" value="Change chat name" 
-			(click)="editstate=1; enteredName=chatname;"/>
+		<input type="button" class="btn btn-primary mr-2" value="Change chat name" 
+			[disabled]="editstate>0 && editstate!=1" (click)="editstate=1; enteredName=chatname;"/>
+		<input type="button" class="btn btn-primary" value="Add new user" (click)="editstate=2;"
+			[disabled]="editstate>0 && editstate!=2"/>
 	</div>
-	<div class="row justify-content-center">
+	<div class="d-flex justify-content-center">
 		<form class="w-25" [hidden]="editstate==0" (submit)="commitName()">
 			<div class="form-row">
-				<input type="text" maxlength="50" name="inputname" class="form-control"
-					style="width: 80%;" [(ngModel)]="enteredName"/>
+				<input type="text" maxlength="50" autocomplete="off" name="inputname" 
+					class="form-control" style="width: 80%;" [(ngModel)]="enteredName"/>
 				<input type="submit" class="btn btn-outline-success" style="width: 10%;" value="V"/>
 				<input type="button" class="btn btn-outline-danger" style="width: 10%;" value="X"
 					(click)="resetEditState()"/>
 			</div>
 			<div class="alert alert-danger" [hidden]="errors==null">{{errors}}</div>
 		</form>
+	</div>
 </div>
