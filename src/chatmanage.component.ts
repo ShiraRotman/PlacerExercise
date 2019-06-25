@@ -11,8 +11,8 @@ import { MessageData } from './message';
 export class ChatManageComponent
 {
 	@ViewChildren(ChatUserComponent) chatviews;
-	users=["User1","User2"]; enteredName: string='';
-	chatname: string='Group Chat';
+	users: string[]=["User1","User2"];
+	chatname: string='Group Chat'; enteredName: string='';
 	errors: string=null; editstate: number=0;
 	
 	onMessageSent(messageData: MessageData)
