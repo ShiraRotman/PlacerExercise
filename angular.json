@@ -23,7 +23,8 @@
                         "index": "src/groupchat.html",
                         "main": "src/groupchat.ts",
                         "polyfills": "polyfills.ts",
-                        "tsConfig": "tsconfig.json"
+                        "tsConfig": "tsconfig.json",
+						"styles": ["styles.css"]
                     }
                 },
                 "serve":
